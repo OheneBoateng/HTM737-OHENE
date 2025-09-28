@@ -36,7 +36,7 @@ CREATE TABLE VISIT(
 	Visit_id		VARCHAR(30)			NOT NULL,
 	Visit_date		DATE				NOT NULL,
 	Attending_md	VARCHAR(30)			NOT NULL,
-	Pri_dx_icd		VARCHAR(20)			NOT NULL,
+	Pri_dx_icd		VARCHAR(20)			NOT NULL,--icd stands for international classification of dieases
 	Pri_dx_name		VARCHAR(100)		NOT NULL,
 	Sec_dx_icd		VARCHAR(20),
 	Sec_dx_name		VARCHAR(100),
@@ -195,4 +195,5 @@ SELECT * FROM MEDICATIONS;
 SELECT * FROM LABS;
 SELECT * FROM VITALS;
 SELECT * FROM MORT;
---
+--using * select everything
+-- a semi colon must be added at the end of evey code to make is valid
