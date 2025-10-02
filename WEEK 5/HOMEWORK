@@ -1,0 +1,9 @@
+SELECT 
+    v.Attending_md,
+    COUNT(DISTINCT v.Pid) AS visit_count,
+    COUNT(DISTINCT m.Rx_name) AS drug_count,
+    COUNT(DISTINCT l.Lab_name) AS lab_count
+FROM Visit v
+LEFT JOIN Medications m ON v.Pid = m.Pid
+LEFT JOIN Labs l ON v.Pid = l.Pid
+GROUP BY v.Attending_md;
