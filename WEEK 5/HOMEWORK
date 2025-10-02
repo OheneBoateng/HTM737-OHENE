@@ -1,5 +1,5 @@
 SELECT 
-    v.Attending_md,
+    v.Attending_md As Provider_name,-- some table have prescriber name and others attending name so added as proveider_name to make it as decribed in excersise instructions
     COUNT(DISTINCT v.Pid) AS visit_count,
     COUNT(DISTINCT m.Rx_name) AS drug_count,
     COUNT(DISTINCT l.Lab_name) AS lab_count
