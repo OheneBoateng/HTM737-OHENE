@@ -1,9 +1,9 @@
 SELECT 
-    v.Attending_md As Provider_name,-- some table have prescriber name and others attending name so added as proveider_name to make it as decribed in excersise instructions
-    COUNT(DISTINCT v.Pid) AS visit_count,
-    COUNT(DISTINCT m.Rx_name) AS drug_count,
-    COUNT(DISTINCT l.Lab_name) AS lab_count
-FROM Visit v
-LEFT JOIN Medications m ON v.Pid = m.Pid
-LEFT JOIN Labs l ON v.Pid = l.Pid
-GROUP BY v.Attending_md;
+    v.Attending_md As Provider_name,-- some table have prescriber name and others attending name so added as provider_name to make it as decribed in excersise instructions
+    COUNT(DISTINCT v.Pid) AS visit_count,--counts unique patients seen per provider
+    COUNT(DISTINCT m.Rx_name) AS drug_count,--counts unique medications per provider
+    COUNT(DISTINCT l.Lab_name) AS lab_count--counts unique lab tests per provider
+FROM Visit v--
+LEFT JOIN Medications m ON v.Pid = m.Pid--joins medications include prescriptions linked by patient id
+LEFT JOIN Labs l ON v.Pid = l.Pid--joimg labs to include lab orders linked by patient id
+GROUP BY v.Attending_md;--aggregate function to group results per provider 
